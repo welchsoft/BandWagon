@@ -6,6 +6,8 @@ API_KEY = '&key=bandwagon-1528232343644'
 
 mynav = navigator.geolocation;
 
+console.log(locationData)
+
 mynav.getCurrentPosition(success, failure)
 
 function startTimeStamp(){
@@ -79,7 +81,7 @@ $(document).ready(function(){
     $('input.autocomplete').autocomplete({
       // fill out the data!!!
       data: {
-        USA : 200,
+        'USA' : 200,
 'Abilene' : 212,
 'Sweetwater' : 212,
 'Albany' : 213,
