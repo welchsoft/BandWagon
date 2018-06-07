@@ -13,36 +13,21 @@ var artistPass=[]
 var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
-//let rock=$("#rock") 
-//let hip_hop=$("#hip-hop") 
-//let country=$("#county") 
-//let world=$("#world") 
-//let rnb=$("#rnb") 
-//rock.click(function(){genrePick = 'Rock', buildGenre(), fetchAll()})
-//hip_hop.click(function(){genrePick = 'Rap', buildGenre(), fetchAll()})
-//country.click(function(){genrePick = 'Country', buildGenre(), fetchAll()})
-//world.click(function(){genrePick = 'World', buildGenre(),fetchAll()})
-//rnb.click(function(){genrePick = 'RnB', buildGenre(), fetchAll()})
 
 $(function () {
     $('select').multipleSelect();
  });
 
-function buildGenre()
-    {
+function buildGenre(){
         genre = genreCats[genrePick]
-        genresearch = '&classificationId='+genre
-    }
+        genresearch = '&classificationId='+genre}
 
-function buildLocation()
-    {
+function buildLocation(){
         var locationChoice =locationData[locationPick]
         city = '&dmaId='+locationChoice
-        return city
-    }
+        return city}
 
-function fetchAll()
-    {
+function fetchAll(){
         buildLocation()
         let searchstring = concertURL+genresearch+city+dateRange+tmAPI_KEY
         console.log(searchstring)
@@ -52,17 +37,14 @@ function fetchAll()
         {   
             for (event in json["_embedded"])
                 {
-//                    console.log(json["_embedded"][event])
                     return json["_embedded"][event]
-                        
                 }
         })
         .then(function(event)
             {
             movieList.html("")
             artistPass=[]
-            for (i in event)
-                        {
+            for (i in event){
                         let genre = event[i].classifications[0].genre.name
                         let eventTitle=event[i].name
                         let venue=event[i]._embedded.venues[0].name
@@ -77,11 +59,7 @@ function fetchAll()
                                     artistPass.push(act)
                                 }
                         buildit(genre, eventTitle, venue, eventDate )
-                        console.log(artistPass)            
-                                                
-                        }
-            })
-    }
+                        console.log(artistPass)}})}
 
 function buildit(genre, eventTitle, venue, eventDate ){
     let li = $("<li>").addClass("displayList");
@@ -90,9 +68,6 @@ function buildit(genre, eventTitle, venue, eventDate ){
     li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
     li.append(`<p class="event-date"> Date: ${eventDate}</p>`)
     li.append(`<p class="genre"> Genre: ${genre}</p>`)
-    movieList.append(li)
-
-}
+    movieList.append(li)}
 
 fetchAll()
- 
