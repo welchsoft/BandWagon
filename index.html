@@ -1,7 +1,26 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @IwanderTx3
+Sign out
+0
+0 0 IwanderTx3/BandWagon
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+BandWagon/index.html
+f6c63bb  20 minutes ago
+@AggieNate AggieNate initial commit
+     
+44 lines (33 sloc)  1.21 KB
 <!doctype html>
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
   <title>BandWagon</title>
 </head>
 <body>
@@ -13,7 +32,43 @@
   <button class="city-search-button">Go</button>
 </div>
 
-</body>
+<div>
+    <div id="listBody" class="listBody">
+        <h3>Upcoming Concerts</h3>
+        <a href="playlist.html" class="btn">Generate Playlist</a>
+
+<div class="genre-text">Filter by Genre</div>
+
+<div class="genre-selector">
+<select class="w300" multiple="multiple">
+    <option value="1">Rock</option>
+    <option value="2">Country</option>
+    <option value="3">Rap</option>
+</select>
+</div>
+
+
+
+
+    <ul id="movieList" class="movieList">  </ul>
+</div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
+<script src="TM.js"></script>
 </html>
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
+Press h to open a hovercard with more details.

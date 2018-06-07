@@ -2,13 +2,11 @@ const API_KEY = "&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp"
 //const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=300&startDateTime=2018-06-05T00:00:00Z&endDateTime=2018-06-12T00:00:00Z&size=120&apikey='
 //const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&countryCode=US&size=200&apikey='
 const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&size=10'
-//classificationName=music&
-//const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&countryCode=US&size=20&classificationName=County&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp'
 let movieList=$("#movieList")
 var genrePick="Country"
 var locationPick="Houston"
 var artistPass=[]  
-//testing
+// test
 var genreCats = 
 {     
     Alternative : "KnvZfZ7vAvv",
