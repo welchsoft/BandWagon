@@ -12,15 +12,21 @@ mynav.getCurrentPosition(success, failure)
 
 function startTimeStamp(){
   let startTime = new Date()
-  console.log(startTime)
+  let startTimeString = startTime.getFullYear() + '-' +startTime.getMonth()+ '-' +startTime.getDate()
+  console.log(startTimeString)
+  return startTimeString
 }
 
 startTimeStamp()
 
 function endTimeStamp(days){
-  let endTime = new Date()
-  endTime.setDate(endTime.getDate() + days)
+  let startTime = new Date()
+  let endTime = startTime.setDate((startTime.getDate()+7))
+  endTime = new Date(endTime)
+  let endTimeString = endTime.getFullYear() + '-' +endTime.getMonth()+ '-' +endTime.getDate()
   console.log(endTime)
+  console.log(endTimeString)
+  return endTimeString
 
 }
 
@@ -87,7 +93,5 @@ $(document).ready(function(){
 function getCity(){
   let cityName = $('#autocomplete-input').val()
   $('#autocomplete-input').val('')
-  //remove me!
-  cityName = "Houston"
   return cityName
 }
