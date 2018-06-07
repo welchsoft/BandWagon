@@ -7,20 +7,32 @@ var dateRange ='&startDateTime=2018-06-05T00:00:00Z&endDateTime=2018-06-12T00:00
 //var dateRangeEnd=endTimeStamp(7)
 //console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
 //var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
-var locationPick=getCity()
+var locationPick ="Houston"
+//var locationPick=getCity()
+// console.log(locationPick)
 let movieList=$("#movieList")
 var artistPass=[]  
 var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
 
-$(function () {
-    $('select').multipleSelect();
- });
+/*$(function () {
+    $('select').value();
+ });*/
 
-function buildGenre(){
+ generate.addEventListener('click',function(){
+    var genreChoice = document.getElementById("genreSelect").value;
+    genre = genreChoice;
+    console.log(genre)
+    genresearch = '&classificationId='+genre
+    buildLocation()
+    fetchAll()
+ })
+ 
+
+/*function buildGenre(){
         genre = genreCats[genrePick]
-        genresearch = '&classificationId='+genre}
+        genresearch = '&classificationId='+genre}*/
 
 function buildLocation(){
         var locationChoice =locationData[locationPick]
@@ -51,15 +63,15 @@ function fetchAll(){
                         let eventDate=event[i].dates.start.localDate
                                                 
                         let lineup = event[i]._embedded.attractions
-                        console.log (lineup)
+//                        console.log (lineup)
                             for (index in lineup )
                                 {
                                     let act = lineup[index].name
-                                    console.log(act)
+//                                    console.log(act)
                                     artistPass.push(act)
                                 }
                         buildit(genre, eventTitle, venue, eventDate )
-                        console.log(artistPass)}})}
+                           /* console.log(artistPass)*/}})}
 
 function buildit(genre, eventTitle, venue, eventDate ){
     let li = $("<li>").addClass("displayList");
