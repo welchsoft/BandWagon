@@ -1,5 +1,5 @@
-html {
-  background: url(images/band.png) no-repeat center center fixed;
+html { 
+  background: url(band.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -60,12 +60,13 @@ h3 {
   font-size: 50px;
   text-shadow: 3px 3px #020202;
   margin-top: 70px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 .btn {
   display: block;
   margin: 0 auto;
+  margin-top: 20px;
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -100,7 +101,7 @@ h3 {
   text-align: center;
   color: white;
   text-shadow: 1px 1px #020202;
-  font-size: 20px;
+  font-size: 25px;
   padding-bottom: 5px;
 }
 
@@ -113,6 +114,42 @@ h3 {
 .w300 {
   width: 300px;
   font-family: arial;
+}
+
+.venue-class {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  font-size: 50px;
+  text-align: center;
+  color: #9af3f9;
+  font-family: helvetica;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.event-date {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.genre {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
 }
 
 #map{
