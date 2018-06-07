@@ -1,5 +1,5 @@
 html { 
-  background: url(band.png) no-repeat center center fixed; 
+  background: url(images/band.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -60,12 +60,13 @@ h3 {
   font-size: 50px;
   text-shadow: 3px 3px #020202;
   margin-top: 70px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 
 .btn {
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
+  margin-top: 20px;
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -100,7 +101,7 @@ h3 {
   text-align: center;
   color: white;
   text-shadow: 1px 1px #020202;
-  font-size: 20px;
+  font-size: 25px;
   padding-bottom: 5px;
 }
 
@@ -113,4 +114,115 @@ h3 {
 .w300 {
   width: 300px;
   font-family: arial;
+}
+
+.venue-class {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  font-size: 50px;
+  text-align: center;
+  color: #9af3f9;
+  font-family: helvetica;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.event-date {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.genre {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 15px;
+  font-family: arial;
+  color: white;
+  margin-bottom: 10px;
+}
+
+#map{
+  width: 400px;
+  height: 400px;
+}
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner {
+  margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
 }

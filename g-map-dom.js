@@ -6,6 +6,8 @@ bandwagonAPI_KEY = '&key=bandwagon-1528232343644'
 
 mynav = navigator.geolocation;
 
+console.log(locationData)
+
 mynav.getCurrentPosition(success, failure)
 
 function startTimeStamp(){
