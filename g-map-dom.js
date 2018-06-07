@@ -2,7 +2,7 @@ mapsAPI_KEY = '&key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 
 placesAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 
-API_KEY = '&key=bandwagon-1528232343644'
+bandwagonAPI_KEY = '&key=bandwagon-1528232343644'
 
 mynav = navigator.geolocation;
 
@@ -80,9 +80,14 @@ function failure() {
 $(document).ready(function(){
     $('input.autocomplete').autocomplete({data: locationData})
     $('#city-submit').click(function(){
-      console.log($('#autocomplete-input').val())
-      let cityName = $('#autocomplete-input').val()
-      $('#autocomplete-input').val('')
-      return cityName
+      getCity()
     })
   })
+
+function getCity(){
+  let cityName = $('#autocomplete-input').val()
+  $('#autocomplete-input').val('')
+  //remove me!
+  cityName = "Houston"
+  return cityName
+}
