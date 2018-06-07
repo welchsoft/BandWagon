@@ -335,3 +335,28 @@ locationData = {
   'El_Centro'  : 420,
   'Zanesville'  : 421,
 }
+
+var genreCats = 
+{     
+    Alternative : "KnvZfZ7vAvv",
+    Ballads : "KnvZfZ7vAve" ,
+    Blues : "KnvZfZ7vAvd",
+    Classical : "KnvZfZ7vAeJ",
+    Country: "KnvZfZ7vAv6",
+    Dance: "KnvZfZ7vAvF",
+    Folk: "KnvZfZ7vAva",
+    Rap: "KnvZfZ7vAv1",
+    Holiday: "KnvZfZ7vAvJ",
+    Jazz: "KnvZfZ7vAvE",
+    Medieval: "KnvZfZ7vAvI",
+    Metal: "KnvZfZ7vAvt",
+    NewAge: "KnvZfZ7vAvn",
+    Other: "KnvZfZ7vAvl",
+    Pop: "KnvZfZ7vAev",
+    RnB: "KnvZfZ7vAee",
+    Reggae: "KnvZfZ7vAed",
+    Religious: "KnvZfZ7vAe7",
+    Rock: "KnvZfZ7vAeA",
+    Undefined: "KnvZfZ7vAe6",
+    World: "KnvZfZ7vAeF"
+}
