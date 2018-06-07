@@ -1,0 +1,37 @@
+html { 
+  background: url(band.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+	color: white;
+	font-size: 60px;
+	font-family: Impact Header, Charcoal, sans-serif;
+	text-align: center;
+}
+
+.title {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+.city-search {
+  display: flex;
+  justify-content: center;
+  height: 25px;
+}
+
+.city-search-field {
+  flex: 1;
+  max-width: 170px;
+}
+
+.city-search-button {
+  background-color: lightgray;
+}
