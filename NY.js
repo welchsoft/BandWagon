@@ -1,3 +1,4 @@
+//Nate's Test
 const API_KEY = "&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp"
 //const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=300&startDateTime=2018-06-05T00:00:00Z&endDateTime=2018-06-12T00:00:00Z&size=120&apikey='
 //const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&countryCode=US&size=200&apikey='
@@ -21,6 +22,12 @@ hip_hop.click(function(){genre = 'Hip-Hop/Rap',console.log("Hip-Hop clicked"),co
 country.click(function(){genre = 'County',console.log("County clicked"),console.log(genresearch),movieList.innerHTML='',fetchAll()})
 world.click(function(){genre = 'World',console.log("World clicked"),console.log(genresearch),movieList.innerHTML='',fetchAll()})
 rnb.click(function(){genre = 'R&B',console.log("R&B clicked"),console.log(genresearch),movieList.innerHTML='',fetchAll()})
+
+
+$(function () {
+    $('select').multipleSelect();
+});
+
 
 
 function fetchAll()
