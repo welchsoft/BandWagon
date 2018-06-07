@@ -7,6 +7,7 @@ var genrePick="Country"
 var locationPick="Houston"
 var artistPass=[]  
 // test
+//test2
 var genreCats = 
 {     
     Alternative : "KnvZfZ7vAvv",
