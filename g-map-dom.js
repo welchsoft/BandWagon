@@ -93,5 +93,7 @@ $(document).ready(function(){
 function getCity(){
   let cityName = $('#autocomplete-input').val()
   $('#autocomplete-input').val('')
+  //remove me !!!
+  cityName = "Houston"
   return cityName
 }
