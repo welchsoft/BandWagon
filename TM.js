@@ -4,7 +4,8 @@ const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countr
 var genrePick="Country"
 var dateRange ='&startDateTime=2018-06-05T00:00:00Z&endDateTime=2018-06-12T00:00:00Z'
 //var dateRangeStart=startTimeStamp()
-//var endDateTime=endTimeStamp(7)
+//var dateRangeEnd=endTimeStamp(7)
+//console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
 //var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
 var locationPick=getCity()
 let movieList=$("#movieList")
@@ -12,16 +13,20 @@ var artistPass=[]
 var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
-let rock=$("#rock") 
-let hip_hop=$("#hip-hop") 
-let country=$("#county") 
-let world=$("#world") 
-let rnb=$("#rnb") 
-rock.click(function(){genrePick = 'Rock', buildGenre(), fetchAll()})
-hip_hop.click(function(){genrePick = 'Rap', buildGenre(), fetchAll()})
-country.click(function(){genrePick = 'Country', buildGenre(), fetchAll()})
-world.click(function(){genrePick = 'World', buildGenre(),fetchAll()})
-rnb.click(function(){genrePick = 'RnB', buildGenre(), fetchAll()})
+//let rock=$("#rock") 
+//let hip_hop=$("#hip-hop") 
+//let country=$("#county") 
+//let world=$("#world") 
+//let rnb=$("#rnb") 
+//rock.click(function(){genrePick = 'Rock', buildGenre(), fetchAll()})
+//hip_hop.click(function(){genrePick = 'Rap', buildGenre(), fetchAll()})
+//country.click(function(){genrePick = 'Country', buildGenre(), fetchAll()})
+//world.click(function(){genrePick = 'World', buildGenre(),fetchAll()})
+//rnb.click(function(){genrePick = 'RnB', buildGenre(), fetchAll()})
+
+$(function () {
+    $('select').multipleSelect();
+ });
 
 function buildGenre()
     {
@@ -81,11 +86,12 @@ function fetchAll()
 function buildit(genre, eventTitle, venue, eventDate ){
     let li = $("<li>").addClass("displayList");
     let itemTitle= $("<title>").addClass("textForm")
-    li.append(eventTitle)
-    li.append(" at the "+venue)
-    li.append(" on "+eventDate)
-    li.append(" Genre:  "+genre)
+    li.append(`<p class="event-title"> ${eventTitle}</p>`)
+    li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
+    li.append(`<p class="event-date"> Date: ${eventDate}</p>`)
+    li.append(`<p class="genre"> Genre: ${genre}</p>`)
     movieList.append(li)
+
 }
 
 fetchAll()
