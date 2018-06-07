@@ -30,12 +30,11 @@ function endTimeStamp(days){
 
 }
 
-
 $('#day-input').val(7)
 $('#day-submit').click(function(){
   console.log($('#day-input').val())
   let dayValue = $('#day-input').val()
-  $('#daye-input').val('')
+  $('#day-input').val('')
   endTimeStamp(dayValue)
 })
 
@@ -80,7 +79,7 @@ function success(position) {
 }
 
 function failure() {
-  let failbox = ('#failbox').html("google maps fetch failed!")
+  $('#fail-message').html("google maps fetch failed!")
 }
 
 $(document).ready(function(){
@@ -93,7 +92,8 @@ $(document).ready(function(){
 function getCity(){
   let cityName = $('#autocomplete-input').val()
   $('#autocomplete-input').val('')
-  //remove me !!!
-  cityName = "Houston"
+  if (locationData[cityName] == undefined){
+    cityName = 'USA'
+  }
   return cityName
 }
