@@ -2,12 +2,8 @@ const tmAPI_KEY = "&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp"
 const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&size=10'
 var genrePick="Country"
 var dateRangeStart=startTimeStamp()
-console.log(dateRangeStart)
 var dateRangeEnd=endTimeStamp()
-console.log(dateRangeEnd)
-console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
 var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
-//var locationPick ="Houston"
 var locationPick="Houston"
 let movieList=$("#movieList")
 var artistPass=[]  
@@ -15,18 +11,35 @@ var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
 
+genreSelect=$('#genreSelect')
+day-select=$('#day-select')
+
+
+genreSelect.change(generateList())
+
+    
+
+
+function generateList(){
+    var genreChoice = document.getElementById("genreSelect").value;
+    genre = genreChoice;
+    locationPick=getCity()
+    genresearch = '&classificationId='+genre
+    var dateRangeStart=startTimeStamp()
+    dateRangeEnd=endTimeStamp()
+    dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
+    buildLocation()
+    fetchAll()
+}
+
+
  generate.addEventListener('click',function(){
     var genreChoice = document.getElementById("genreSelect").value;
     genre = genreChoice;
-    console.log(genre)
     locationPick=getCity()
-    console.log(locationPick)
     genresearch = '&classificationId='+genre
     var dateRangeStart=startTimeStamp()
-    console.log(dateRangeStart)
     dateRangeEnd=endTimeStamp()
-    console.log(dateRangeEnd)
-    console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
     dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
     buildLocation()
     fetchAll()
