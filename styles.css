@@ -152,6 +152,11 @@ h3 {
   margin-bottom: 10px;
 }
 
+.movieList {
+  padding-left: 0px;
+  padding-right: 0px
+}
+
 #map{
   width: 400px;
   height: 400px;
