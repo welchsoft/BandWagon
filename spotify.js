@@ -44,18 +44,15 @@ function findBandIds(searchTerms){
         'Authorization': 'Bearer ' + access_token
       },
     }).then((response)=>{
-        console.log(response)
         band_id_api_results.push(response.artists.items[0].id)
-        var searchResults = JSON.stringify(response)
-        //console.log(searchResults)
-        var bandName = response.artists.items[0].name
-        var bandId = response.artists.items[0].id
-        list_of_band_ids.push(bandId)
-        console.log(bandName)
-        console.log(bandId)
-        console.log(list_of_band_ids)
+        // var bandName = response.artists.items[0].name
+        // var bandId = response.artists.items[0].id
+        // list_of_band_ids.push(bandId)
+        // console.log(bandName)
+        // console.log(bandId)
+        // console.log(list_of_band_ids)
         if(length_of_requests == successful_requests){
-          console.log("Moving on with the rest of script")
+          console.log("List of band IDs created")
           console.log(band_id_api_results)
           successful_requests = 0
           findTopSongs(band_id_api_results)
@@ -71,7 +68,6 @@ function findBandIds(searchTerms){
 // Takes a list of band ids and finds the top song for each band, appends that song ID to a list and returns it
 function findTopSongs(list_of_band_ids){
   var song_ids = []
-  console.log(list_of_band_ids)
   length_of_requests = list_of_band_ids.length
   list_of_band_ids.forEach((item)=>{
     $.ajax({
@@ -127,13 +123,11 @@ function playlistGenerator(formatted_songs){
 // Dynamically injects the playlist after it has been generated
 function displayPlaylist(){
   playlistDiv = document.getElementById("playlist")
-  console.log(`<iframe src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
   playlistDiv.innerHTML = `<iframe src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
 }
 
 // Takes playlist id and formatted track ids and adds the songs to created playlist on user's profile.
 function addSongs(playlist, track){
-  console.log(track)
   $.ajax({
     method: 'POST',
     url: `https://api.spotify.com/v1/users/${currentUser}/playlists/${playlist}/tracks?position=0&uris=${track}`,
@@ -170,7 +164,7 @@ function getUserId(){
     },
     success: (response)=>{
       currentUser = response.id
-      console.log(currentUser)
+      console.log("User id retrieved")
     }
   })
 }

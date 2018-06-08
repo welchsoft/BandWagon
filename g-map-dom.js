@@ -118,5 +118,11 @@ function getCity(){
 
 $(function(){
     let availableTags = cities
-    $("#tags").autocomplete({source: availableTags})
-  })
+    $("#tags").autocomplete({
+    source: function(request, response) {
+        var results = $.ui.autocomplete.filter(availableTags, request.term);
+
+        response(results.slice(0, 5));
+    }
+})
+})
