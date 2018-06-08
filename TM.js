@@ -76,6 +76,7 @@ function fetchAll(){
                         let venue=event[i]._embedded.venues[0].name
                         let eventDate=event[i].dates.start.localDate
                         let getTickets=event[i].url
+                        let backdrop=event[i].images[0].url
                         console.log (getTickets)                        
                         let lineup = event[i]._embedded.attractions
 //                        console.log (lineup)
@@ -85,11 +86,14 @@ function fetchAll(){
 //                                    console.log(act)
                                     artistPass.push(act)
                                 }
-                        buildit(genre, eventTitle, venue, eventDate, getTickets )
+                        buildit(genre, eventTitle, venue, eventDate, getTickets, backdrop )
                            /* console.log(artistPass)*/}})}
 
-function buildit(genre, eventTitle, venue, eventDate, getTickets ){
+function buildit(genre, eventTitle, venue, eventDate, getTickets, backdrop ){
     let li = $("<li>").addClass("displayList");
+//    li.attr('style',`url('${backdrop}') no-repeat center center`,`background-size: cover`)
+//    li.attr('style')
+//    displayList.css("background-image", "url('${backdrop}') no-repeat center center")
     let itemTitle= $("<title>").addClass("textForm")
     li.append(`<p class="event-title"> ${eventTitle}</p>`)
     li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
