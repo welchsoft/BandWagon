@@ -19,9 +19,22 @@
     <div id="listBody" class="listBody">
         <h3>Upcoming Concerts</h3>
         
-<div class="genre-heading-container">
-    <div class="genre-text">Filter By Genre</div>
-    <a class="btn" id="generate">Filter</a>
+
+<div class="heading-container">
+    <div class="genre-text">Time Range</div>
+</div>
+<div id="select-container">
+    <select name="select-box" id="day-select" class="select">
+    <option value="3">3 days</option>
+    <option value="5">5 days</option>
+    <option selected="selected" value="7">1 week</option>
+    <option value="14">2 weeks</option>
+    </select>
+</div>
+
+
+<div class="heading-container">
+    <div class="genre-text">Genre</div>
 </div>
 
 <div class="genre-selector">
@@ -50,20 +63,13 @@
 </select>
 </div>
 
-
+<div class="filter-btn-container">
+<a class="btn" id="generate">Filter</a>
+</div>
 
 <div class="btn-row-container">
-
     <a href="playlist.html" class="btn spotify-btn" id="generate2">Log Into Spotify</a>
     <a href="playlist.html" class="btn playlist-btn" id="generate3">Generate Spotify Playlist</a>
-    <div id="select-container">
-        <select name="select-box" id="day-select" class="select">
-          <option value="3">3 days:</option>
-          <option value="5">5 days</option>
-          <option selected="selected" value="7">1 week</option>
-          <option value="14">2 weeks</option>
-        </select>
-      </div>
 </div>
 
 <ul id="movieList" class="movieList">
@@ -75,7 +81,6 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.js"></script>
 <script src="location-list.js"></script>
 <!-- all entries bellow here  -->
 <!-- Wades JS goes here -->
