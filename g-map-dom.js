@@ -7,6 +7,7 @@ bandwagonAPI_KEY = '&key=bandwagon-1528232343644'
 mynav = navigator.geolocation;
 
 console.log(locationData)
+console.log(cities)
 
 mynav.getCurrentPosition(success, failure)
 
@@ -108,10 +109,14 @@ $(document).ready(function(){
   })
 
 function getCity(){
-  let cityName = $('#autocomplete-input').val()
-  $('#autocomplete-input').val('')
+  let cityName = $('#tags').val()
   if (locationData[cityName] == undefined){
     cityName = 'USA'
   }
   return cityName
 }
+
+$(function(){
+    let availableTags = cities
+    $("#tags").autocomplete({source: availableTags})
+  })
