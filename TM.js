@@ -13,12 +13,7 @@ var city = '&dmaId='+locationPick
 
 //genreSelect=$('#genreSelect');
 //day-select=$('#day-select');
-
-
-genreSelect.change(generateList())
-
-    
-
+//genreSelect.change(generateList())
 
 function generateList(){
     var genreChoice = document.getElementById("genreSelect").value;
@@ -31,7 +26,6 @@ function generateList(){
     buildLocation()
     fetchAll()
 }
-
 
  generate.addEventListener('click',function(){
     var genreChoice = document.getElementById("genreSelect").value;
@@ -80,12 +74,12 @@ function fetchAll(){
                                     let act = lineup[index].name
                                     artistPass.push(act)
                                 }
-                        buildit(genre, eventTitle, venue, eventDate, getTickets /*, backdrop*/ )
+                        buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop )
                            }})}
 
-function buildit(genre, eventTitle, venue, eventDate, getTickets /*, backdrop*/ ){
+function buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop ){
     let li = $("<li>").addClass("displayList");
-//    li.attr('style',`url(${backdrop}) no-repeat center center`)
+    li.attr('style',`background-image: url(${backdrop})`)
     let itemTitle= $("<title>").addClass("textForm")
     li.append(`<p class="event-title"> ${eventTitle}</p>`)
     li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
