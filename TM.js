@@ -75,7 +75,8 @@ function fetchAll(){
                         let eventTitle=event[i].name
                         let venue=event[i]._embedded.venues[0].name
                         let eventDate=event[i].dates.start.localDate
-                                                
+                        let getTickets=event[i].url
+                        console.log (getTickets)                        
                         let lineup = event[i]._embedded.attractions
 //                        console.log (lineup)
                             for (index in lineup )
@@ -84,16 +85,17 @@ function fetchAll(){
 //                                    console.log(act)
                                     artistPass.push(act)
                                 }
-                        buildit(genre, eventTitle, venue, eventDate )
+                        buildit(genre, eventTitle, venue, eventDate, getTickets )
                            /* console.log(artistPass)*/}})}
 
-function buildit(genre, eventTitle, venue, eventDate ){
+function buildit(genre, eventTitle, venue, eventDate, getTickets ){
     let li = $("<li>").addClass("displayList");
     let itemTitle= $("<title>").addClass("textForm")
     li.append(`<p class="event-title"> ${eventTitle}</p>`)
     li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
     li.append(`<p class="event-date"> Date: ${eventDate}</p>`)
     li.append(`<p class="genre"> Genre: ${genre}</p>`)
+    li.append(`<p onclick=(window.open('${getTickets}')) class="buy" >Buy Tickets</p>`)
     movieList.append(li)}
 
 fetchAll()
