@@ -7,9 +7,8 @@ var dateRangeEnd=endTimeStamp()
 console.log(dateRangeEnd)
 console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
 var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
-var locationPick ="Houston"
-//var locationPick=getCity()
-// console.log(locationPick)
+//var locationPick ="Houston"
+var locationPick="Houston"
 let movieList=$("#movieList")
 var artistPass=[]  
 var genre = genreCats[genrePick]
@@ -20,6 +19,8 @@ var city = '&dmaId='+locationPick
     var genreChoice = document.getElementById("genreSelect").value;
     genre = genreChoice;
     console.log(genre)
+    locationPick=getCity()
+    console.log(locationPick)
     genresearch = '&classificationId='+genre
     var dateRangeStart=startTimeStamp()
     console.log(dateRangeStart)
@@ -66,12 +67,12 @@ function fetchAll(){
                                     let act = lineup[index].name
                                     artistPass.push(act)
                                 }
-                        buildit(genre, eventTitle, venue, eventDate, getTickets, backdrop )
+                        buildit(genre, eventTitle, venue, eventDate, getTickets /*, backdrop*/ )
                            }})}
 
-function buildit(genre, eventTitle, venue, eventDate, getTickets, backdrop ){
+function buildit(genre, eventTitle, venue, eventDate, getTickets /*, backdrop*/ ){
     let li = $("<li>").addClass("displayList");
-    li.attr('style',`url(${backdrop}) no-repeat center center`)
+//    li.attr('style',`url(${backdrop}) no-repeat center center`)
     let itemTitle= $("<title>").addClass("textForm")
     li.append(`<p class="event-title"> ${eventTitle}</p>`)
     li.append(`<p class="venue-class"> Venue: ${venue}</p>`)
