@@ -1,5 +1,5 @@
-html { 
-  background: url(images/band.png) no-repeat center center fixed; 
+html {
+  background: url(images/band.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,14 +40,14 @@ h1 {
 .displayList {
   display: flex;
   flex-direction: column;
-  width: 70%;
+   width: 70%;
   height: auto;
   color: white;
   border-width: 5px;
   margin: auto auto 20px auto;
   font-size: 24px;
   border-radius: 25px;
-  background: #4c4949bd;
+  background-color: #4c4949bd;
   padding: 20px;
   text-shadow: 1px 2px #020202;
 }
@@ -56,17 +56,23 @@ h3 {
   color: white;
   font-family: arial;
   text-align: center;
-  font-size: 40px;
-  font-size: 50px;
+  font-size: 60px;
   text-shadow: 3px 3px #020202;
   margin-top: 70px;
-  margin-bottom: 35px;
+  margin-bottom: 10px;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 
 .btn {
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
+  display: flex;
+  margin: 0;
+  margin-top: 0px;
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
   background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -83,7 +89,7 @@ h3 {
   text-decoration: none;
   text-align: center;
   max-width: 300px;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .btn:hover {
@@ -96,24 +102,74 @@ h3 {
   text-decoration: none;
 }
 
-.genre-text {
+.time-range-text {
+  display: flex;
   font-family: arial;
   text-align: center;
   color: white;
   text-shadow: 1px 1px #020202;
-  font-size: 25px;
-  padding-bottom: 5px;
+  font-size: 28px;
+  padding-bottom: 0px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-top: 7px;
+}
+
+#select-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.genre-text {
+  display: flex;
+  font-family: arial;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px #020202;
+  font-size: 28px;
+  padding-bottom: 0px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-top: 7px;
 }
 
 .genre-selector {
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .w300 {
   width: 300px;
   font-family: arial;
+  font-size: 22px;
+  border-radius: 8px;
+}
+
+.filter-btn-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn-row-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.spotify-btn {
+  margin-right: 20px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.playlist-btn {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
 }
 
 .venue-class {
@@ -154,7 +210,8 @@ h3 {
 
 .movieList {
   padding-left: 0px;
-  padding-right: 0px
+  padding-right: 0px;
+  margin-top: 25px;
 }
 
 #map{
@@ -230,4 +287,42 @@ h3 {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+.select{
+  display: block;
+  font-size: 22px;
+}
+
+.buy {
+  display: flex;
+  margin: 20px auto 0px auto;
+  margin-top: 20px;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  max-width: 300px;
+  margin-bottom: 5px;
+}
+
+.buy:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
 }
