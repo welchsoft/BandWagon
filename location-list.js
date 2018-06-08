@@ -336,8 +336,8 @@ locationData = {
   'Zanesville'  : 421,
 }
 
-var genreCats = 
-{     
+var genreCats =
+{
     Alternative : "KnvZfZ7vAvv",
     Ballads : "KnvZfZ7vAve" ,
     Blues : "KnvZfZ7vAvd",
@@ -359,4 +359,9 @@ var genreCats =
     Rock: "KnvZfZ7vAeA",
     Undefined: "KnvZfZ7vAe6",
     World: "KnvZfZ7vAeF"
+}
+
+var cities = []
+for(city in locationData){
+  cities.push(city)
 }
