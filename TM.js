@@ -20,9 +20,9 @@ var city = '&dmaId='+locationPick
     $('select').value();
  });*/
 
-var myNumber = 12;
-var formattedNumber = ("0" + myNumber).slice(-2);
-console.log(formattedNumber);
+//var myNumber = 9;
+//var formattedNumber = ("0" + myNumber).slice(-2);
+//console.log(formattedNumber);
 
  generate.addEventListener('click',function(){
     var genreChoice = document.getElementById("genreSelect").value;
