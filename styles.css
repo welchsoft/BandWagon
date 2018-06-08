@@ -40,8 +40,7 @@ h1 {
 .displayList {
   display: flex;
   flex-direction: column;
-  background-image: none;
-  width: 70%;
+   width: 70%;
   height: auto;
   color: white;
   border-width: 5px;
