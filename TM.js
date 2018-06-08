@@ -2,11 +2,15 @@ const tmAPI_KEY = "&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp"
 const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&size=10'
 
 var genrePick="Country"
-var dateRange ='&startDateTime=2018-06-05T00:00:00Z&endDateTime=2018-06-12T00:00:00Z'
-//var dateRangeStart=startTimeStamp()
-//var dateRangeEnd=endTimeStamp(7)
-//console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
-//var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
+
+//var dateRange ='&startDateTime=2018-06-08T00:00:00Z&endDateTime=2018-06-30T00:00:00Z'
+
+var dateRangeStart=startTimeStamp()
+console.log(dateRangeStart)
+var dateRangeEnd=endTimeStamp()
+console.log(dateRangeEnd)
+console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
+var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
 var locationPick ="Houston"
 //var locationPick=getCity()
 // console.log(locationPick)
@@ -20,11 +24,21 @@ var city = '&dmaId='+locationPick
     $('select').value();
  });*/
 
+//var myNumber = 9;
+//var formattedNumber = ("0" + myNumber).slice(-2);
+//console.log(formattedNumber);
+
  generate.addEventListener('click',function(){
     var genreChoice = document.getElementById("genreSelect").value;
     genre = genreChoice;
     console.log(genre)
     genresearch = '&classificationId='+genre
+    var dateRangeStart=startTimeStamp()
+    console.log(dateRangeStart)
+    dateRangeEnd=endTimeStamp()
+    console.log(dateRangeEnd)
+    console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
+    dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
     buildLocation()
     fetchAll()
  })
