@@ -60,10 +60,8 @@ $("#day-select").change(function(){
 function success(position) {
   let mylat = position.coords.latitude
   let mylong = position.coords.longitude
-  $('#lat').html(mylat)
-  $('#long').html(mylong)
-  console.log(mylat)
-  console.log(mylong)
+  //$('#lat').html(mylat)
+  //$('#long').html(mylong)
 
     let mycoords = new google.maps.LatLng(mylat, mylong)
 
@@ -80,21 +78,22 @@ function success(position) {
     return address_components_array[0]
   }).then(function(address_component){
     console.log(address_component['long_name'])
-    $('#city-name').html(address_component['long_name'])
-    $("#autocomplete-input").val(address_component['long_name'])
+    //$('#city-name').html(address_component['long_name'])
+    $("#tags").val(address_component['long_name'])
     //return address_component['long_name']
     //DO STUFF HERE!!!
   })
 
-  let mapOptions = {
-    zoom: 16,
-    center: mycoords,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-
-  let map = new google.maps.Map(document.getElementById('map'), mapOptions)
-
-  let marker = new google.maps.Marker({map: map, position: mycoords})
+//remove me!!!
+  // let mapOptions = {
+  //   zoom: 16,
+  //   center: mycoords,
+  //   mapTypeId: google.maps.MapTypeId.ROADMAP
+  // }
+  //
+  // let map = new google.maps.Map(document.getElementById('map'), mapOptions)
+  //
+  // let marker = new google.maps.Marker({map: map, position: mycoords})
 }
 
 function failure() {

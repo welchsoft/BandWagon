@@ -10,15 +10,10 @@
 
 <img src="images/title.png" class="title">
 
-<div class="city-search">
-  <input class="city-search-field" placeholder="Enter City">
-  <button class="city-search-button">Go</button>
+<div class="ui-widget">
+<label for="tags">City: </label>
+<input id="tags">
 </div>
-
-<div>
-    <div id="listBody" class="listBody">
-        <h3>Upcoming Concerts</h3>
-        
 
 <div class="heading-container">
     <div class="genre-text">Time Range</div>
@@ -31,6 +26,10 @@
     <option value="14">2 weeks</option>
     </select>
 </div>
+
+<div>
+    <div id="listBody" class="listBody">
+        <h3>Upcoming Concerts</h3>
 
 
 <div class="heading-container">
@@ -84,6 +83,7 @@
 <script src="location-list.js"></script>
 <!-- all entries bellow here  -->
 <!-- Wades JS goes here -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI&libraries=places"></script>
 <script src="g-map-dom.js"></script>
 <!-- Stephen's JS goes here -->
 <script src="TM.js"></script>
