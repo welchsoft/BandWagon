@@ -11,8 +11,8 @@ var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
 
-genreSelect=$('#genreSelect')
-day-select=$('#day-select')
+//genreSelect=$('#genreSelect');
+//day-select=$('#day-select');
 
 
 genreSelect.change(generateList())
