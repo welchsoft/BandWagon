@@ -1,8 +1,8 @@
 var access_token = ''  
 var currentUser = ''
 var playlist_id = ''
-var playlist_generator = $('#generatePlaylist')
-var authorize = $('#authorize')
+var playlist_generator = $('#generate3')
+var authorize = $('#generate2')
 var list_of_song_titles = []
 var length_of_requests = 0
 var successful_requests = 0
@@ -187,11 +187,3 @@ playlist_generator.click(()=>{
   getUserId()
   let id_list = findBandIds(search_list)
 })
-
-
-{/* <button class="btn" id="authorize">Login to Spotify</button>
-<button class="btn" id="generatePlaylist">Generate the Playist!</button>
-
-<div id="playlist">
-    
-</div> */}
