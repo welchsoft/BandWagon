@@ -181,9 +181,9 @@ authorize.click(()=>{
 })
 
 
-var search_list = ['coldplay', 'paramore', 'logic']
+
 playlist_generator.click(()=>{
   getToken()
   getUserId()
-  let id_list = findBandIds(search_list)
+  let id_list = findBandIds(artistPass)
 })
