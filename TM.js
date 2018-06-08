@@ -6,7 +6,9 @@ var genrePick="Country"
 //var dateRange ='&startDateTime=2018-06-08T00:00:00Z&endDateTime=2018-06-30T00:00:00Z'
 
 var dateRangeStart=startTimeStamp()
+console.log(dateRangeStart)
 var dateRangeEnd=endTimeStamp()
+console.log(dateRangeEnd)
 console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
 var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
 var locationPick ="Houston"
@@ -31,6 +33,12 @@ var city = '&dmaId='+locationPick
     genre = genreChoice;
     console.log(genre)
     genresearch = '&classificationId='+genre
+    var dateRangeStart=startTimeStamp()
+    console.log(dateRangeStart)
+    dateRangeEnd=endTimeStamp()
+    console.log(dateRangeEnd)
+    console.log('&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z')
+    dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
     buildLocation()
     fetchAll()
  })
