@@ -30,32 +30,31 @@ function endTimeStamp(){
   return endTime
 }
 
-//remove me!!!
-function endTimeStampOld(days){
-  let daysOffset = days * 60 * 60 * 24 * 1000
-  let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
-  let endTime = new Date(Date.now() + daysOffset - timeZoneOffset)
-  endTime = endTime.toISOString()
-  endTime = endTime.substring(0, endTime.indexOf('T'))
-  console.log(endTime)
-  return endTime
-
-}
-endTimeStampOld(7)
-
 $("#day-select").change(function(){
   endTimeStamp()
 })
 
+//remove me!!!
+// function endTimeStampOld(days){
+//   let daysOffset = days * 60 * 60 * 24 * 1000
+//   let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
+//   let endTime = new Date(Date.now() + daysOffset - timeZoneOffset)
+//   endTime = endTime.toISOString()
+//   endTime = endTime.substring(0, endTime.indexOf('T'))
+//   console.log(endTime)
+//   return endTime
+//
+// }
+// endTimeStampOld(7)
 
-
-$('#day-input').val(7)
-$('#day-submit').click(function(){
-  console.log($('#day-input').val())
-  let dayValue = $('#day-input').val()
-  $('#day-input').val('')
-  endTimeStamp(dayValue)
-})
+///remove me !!! handler for depricated day selector
+// $('#day-input').val(7)
+// $('#day-submit').click(function(){
+//   console.log($('#day-input').val())
+//   let dayValue = $('#day-input').val()
+//   $('#day-input').val('')
+//   endTimeStamp(dayValue)
+// })
 
 function success(position) {
   let mylat = position.coords.latitude
