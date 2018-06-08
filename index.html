@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <title>BandWagon</title>
 </head>
 <body>
@@ -18,8 +19,10 @@
     <div id="listBody" class="listBody">
         <h3>Upcoming Concerts</h3>
         
-
-<div class="genre-text">Filter by Genre</div>
+<div class="genre-heading-container">
+    <div class="genre-text">Filter By Genre</div>
+    <a class="btn" id="generate">Filter</a>
+</div>
 
 <div class="genre-selector">
 <select class="w300" multiple="multiple" id="genreSelect">
@@ -47,10 +50,15 @@
 </select>
 </div>
 
-<a href="playlist.html" class="btn" id="generate">Generate Playlist</a>
-    <ul id="movieList" class="movieList">
-      <div class="genre">
-    </ul>
+
+<div class="btn-row-container">
+    <a href="playlist.html" class="btn spotify-btn" id="generate">Log Into Spotify</a>
+    <a href="playlist.html" class="btn playlist-btn" id="generate">Generate Spotify Playlist</a>
+</div>
+
+<ul id="movieList" class="movieList">
+    <div class="genre">
+</ul>
 </div>
 
 </body>
