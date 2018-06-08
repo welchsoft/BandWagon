@@ -1,5 +1,5 @@
-html { 
-  background: url(images/band.png) no-repeat center center fixed; 
+html {
+  background: url(images/band.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -230,4 +230,8 @@ h3 {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+.select{
+  display: block;
 }

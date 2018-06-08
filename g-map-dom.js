@@ -11,24 +11,43 @@ console.log(locationData)
 mynav.getCurrentPosition(success, failure)
 
 function startTimeStamp(){
-  let startTime = new Date()
-  let startTimeString = startTime.getFullYear() + '-' +startTime.getMonth()+ '-' +startTime.getDate()
-  console.log(startTimeString)
-  return startTimeString
+  let timeZoneOffset = (new Date()).getTimezoneOffset() * 60000
+  let startTime = (new Date(Date.now() - timeZoneOffset)).toISOString();
+  startTime = startTime.substring(0, startTime.indexOf('T'))
+  console.log(startTime)
+  return startTime
 }
-
+//remove me!!!
 startTimeStamp()
 
-function endTimeStamp(days){
-  let startTime = new Date()
-  let endTime = startTime.setDate((startTime.getDate()+7))
-  endTime = new Date(endTime)
-  let endTimeString = endTime.getFullYear() + '-' +endTime.getMonth()+ '-' +endTime.getDate()
+function endTimeStamp(){
+  let daysOffset = ($("#day-select").find(":selected").val()) * 60 * 60 * 24 * 1000
+  let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
+  let endTime = new Date(Date.now() + daysOffset - timeZoneOffset)
+  endTime = endTime.toISOString()
+  endTime = endTime.substring(0, endTime.indexOf('T'))
   console.log(endTime)
-  console.log(endTimeString)
-  return endTimeString
+  return endTime
+}
+
+//remove me!!!
+function endTimeStampOld(days){
+  let daysOffset = days * 60 * 60 * 24 * 1000
+  let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
+  let endTime = new Date(Date.now() + daysOffset - timeZoneOffset)
+  endTime = endTime.toISOString()
+  endTime = endTime.substring(0, endTime.indexOf('T'))
+  console.log(endTime)
+  return endTime
 
 }
+endTimeStampOld(7)
+
+$("#day-select").change(function(){
+  endTimeStamp()
+})
+
+
 
 $('#day-input').val(7)
 $('#day-submit').click(function(){
