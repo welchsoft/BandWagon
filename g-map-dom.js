@@ -101,12 +101,13 @@ function failure() {
   $('#fail-message').html("google maps fetch failed!")
 }
 
-$(document).ready(function(){
-    $('input.autocomplete').autocomplete({data: locationData})
-    $('#city-submit').click(function(){
-      getCity()
-    })
-  })
+//remove me !!!
+// $(document).ready(function(){
+//     $('input.autocomplete').autocomplete({data: locationData})
+//     $('#city-submit').click(function(){
+//       getCity()
+//     })
+//   })
 
 function getCity(){
   let cityName = $('#tags').val()
