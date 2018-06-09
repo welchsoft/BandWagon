@@ -50,7 +50,7 @@ h1 {
   border-radius: 25px;
   background-color: #4c4949bd;
   padding: 20px;
-  text-shadow: 5px 5px 5px  grey;
+  text-shadow: 5px 5px 5px  black;
 }
 
 h3 {
@@ -65,7 +65,7 @@ h3 {
 
 .heading-container {
   border-radius: .3rem;
-  background-color: rgba(0, 0, 0, .2);
+  
   margin: .5rem;
   padding: .5rem;
   width: auto; 
@@ -183,10 +183,10 @@ h3 {
 .venue-class {
   font-size: 30px;
   text-align: center;
-  padding: 2px 10px 2px 10px;
+  padding: 10px 10px 10px 10px;
   margin: 15px auto 10px auto;
-  background-color: rgba(99, 98, 98, 0.5);
-  border-radius: 25%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: .4rem;
   font-family: arial;
   color: white;
 }
@@ -194,7 +194,7 @@ h3 {
 .event-title {
   font-size: 50px;
   text-align: center;
-  color: #9af3f9;
+  color:#3498db;
   font-family: helvetica;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -205,10 +205,10 @@ h3 {
   text-align: center;
   margin-top: 15px;
   font-family: arial;
-  padding: 2px 10px 2px 10px;
+  padding: 10px 10px 10px 10px;
   margin: 15px auto 10px auto;
-  background-color: rgba(99, 98, 98, 0.5);
-  border-radius: 25%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: .4rem;
   color: white;
 }
 
@@ -218,10 +218,10 @@ h3 {
   margin-top: 15px;
   font-family: arial;
   color: white;
-  padding: 2px 10px 2px 10px;
+  padding: 10px 10px 10px 10px;
   margin: 15px auto 10px auto;
-  background-color: rgba(99, 98, 98, 0.5);
-  border-radius: 25%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: .4rem;
 }
 
 .movieList {
@@ -245,7 +245,6 @@ h3 {
   width: 18px;
   height: 18px;
   background-color: #333;
-
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -350,7 +349,7 @@ h3 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
   margin: auto;
   align-items: stretch;
 

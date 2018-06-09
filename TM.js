@@ -20,7 +20,8 @@ function generateList(){
     genre = genreChoice;
     locationPick=getCity()
     genresearch = '&classificationId='+genre
-    var dateRangeStart=startTimeStamp()
+    dateRangeStart=startTimeStamp()
+    console.log(dateRangeStart)
     dateRangeEnd=endTimeStamp()
     dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
     buildLocation()
@@ -32,7 +33,8 @@ function generateList(){
     genre = genreChoice;
     locationPick=getCity()
     genresearch = '&classificationId='+genre
-    var dateRangeStart=startTimeStamp()
+    dateRangeStart=startTimeStamp()
+    console.log(dateRangeStart)
     dateRangeEnd=endTimeStamp()
     dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
     buildLocation()
