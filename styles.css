@@ -87,6 +87,7 @@ h3 {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
+  border-style: inset;
   font-family: Arial;
   color: #ffffff;
   font-size: 20px;
@@ -96,6 +97,10 @@ h3 {
   max-width: 300px;
   margin-bottom: 5px;
   text-shadow: 1px 2px #020202;
+}
+
+.btn:active{
+  border-style: outset;
 }
 
 .btn:hover {
