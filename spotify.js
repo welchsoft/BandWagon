@@ -44,20 +44,18 @@ function findBandIds(searchTerms){
         'Authorization': 'Bearer ' + access_token
       },
     }).then((response)=>{
-        band_id_api_results.push(response.artists.items[0].id)
-        // var bandName = response.artists.items[0].name
-        // var bandId = response.artists.items[0].id
-        // list_of_band_ids.push(bandId)
-        // console.log(bandName)
-        // console.log(bandId)
-        // console.log(list_of_band_ids)
+      if ((response.artists.items[0].name)&&($.inArray(response.artists.items[0].id, band_id_api_results) == -1)) {
+          band_id_api_results.push(response.artists.items[0].id)
+        }
+        
         if(length_of_requests == successful_requests){
-          console.log("List of band IDs created")
-          console.log(band_id_api_results)
+          console.log("Finished getting Band IDs")
           successful_requests = 0
           findTopSongs(band_id_api_results)
-          
+      } else {
+        length_of_requests -= 1
         }
+        
         successful_requests += 1
 
     })
@@ -82,15 +80,12 @@ function findTopSongs(list_of_band_ids){
       var songId = response.tracks[0].id
       band_top_track_api_results.push(songId)
       list_of_song_titles.push(songName)
-      console.log(list_of_song_titles)
 
         if(length_of_requests == successful_requests){
           console.log("Finished getting top tracks")
-          console.log(band_top_track_api_results)
+          console.log(list_of_song_titles)
           var songFormat = formattedSongs()
           playlistGenerator(songFormat)
-     
-          
         }
         successful_requests += 1
     })
@@ -110,9 +105,8 @@ function playlistGenerator(formatted_songs){
       'Authorization': 'Bearer ' + access_token
     },
     success: (response)=>{
-      console.log("playlist created!")
+      console.log("Playlist Created!")
       playlist_id = response.id
-      console.log(response.id)
       addSongs(playlist_id, formatted_songs)
       displayPlaylist()
     }
@@ -123,7 +117,7 @@ function playlistGenerator(formatted_songs){
 // Dynamically injects the playlist after it has been generated
 function displayPlaylist(){
   playlistDiv = document.getElementById("playlist")
-  playlistDiv.innerHTML = `<iframe src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+  playlistDiv.innerHTML = `<iframe id="playlist-frame" src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
 }
 
 // Takes playlist id and formatted track ids and adds the songs to created playlist on user's profile.
@@ -137,7 +131,6 @@ function addSongs(playlist, track){
       'Authorization': 'Bearer ' + access_token
     },
     success: (response)=>{
-      console.log(response)
     }
   })
   
@@ -164,18 +157,18 @@ function getUserId(){
     },
     success: (response)=>{
       currentUser = response.id
-      console.log("User id retrieved")
+      console.log("User ID retrieved")
     }
   })
 }
 
-
+// Sends user to authorization page
 authorize.click(()=>{
   spotifyAuthorize()
 })
 
 
-
+// Extracts token and User ID after authorization, then goes through basically every other function on the page.
 playlist_generator.click(()=>{
   getToken()
   getUserId()
