@@ -339,6 +339,7 @@ locationData = {
 var genreCats =
 {
     Alternative : "KnvZfZ7vAvv",
+    Test : "KnvZfZ7vAeA",
     Ballads : "KnvZfZ7vAve" ,
     Blues : "KnvZfZ7vAvd",
     Classical : "KnvZfZ7vAeJ",
@@ -361,7 +362,7 @@ var genreCats =
     World: "KnvZfZ7vAeF"
 }
 
-var cities = []
+var cities = [] 
 for(city in locationData){
   cities.push(city)
 }
