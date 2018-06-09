@@ -33,6 +33,8 @@ mynav = navigator.geolocation;
 mynav.getCurrentPosition(success, failure)
 
 function success(position) {
+  //deactive the spinner
+  $('#maps-message').html("")
   //get the coordinates
   let mylat = position.coords.latitude
   let mylong = position.coords.longitude
@@ -59,7 +61,7 @@ function success(position) {
 
 //shows up if google maps fails or gets denied access
 function failure() {
-  $('#fail-message').html("google maps fetch failed!")
+  $('#maps-message').html("google maps fetch failed!")
 }
 
 //grabs the city value from textbox, returns USA if not in the list passes to TM.js
