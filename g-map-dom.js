@@ -1,16 +1,9 @@
+//key for google maps, remember that &key= was added
 mapsAPI_KEY = '&key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
-
+//key for google places, might need this later?
 placesAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 
-bandwagonAPI_KEY = '&key=bandwagon-1528232343644'
-
-mynav = navigator.geolocation;
-
-console.log(locationData)
-console.log(cities)
-
-mynav.getCurrentPosition(success, failure)
-
+//generates the a time stamp for the current day to pass to TM.js
 function startTimeStamp(){
   let timeZoneOffset = (new Date()).getTimezoneOffset() * 60000
   let startTime = (new Date(Date.now() - timeZoneOffset)).toISOString();
@@ -18,9 +11,8 @@ function startTimeStamp(){
   console.log(startTime)
   return startTime
 }
-//remove me!!!
-startTimeStamp()
 
+//generates the a time stamp for the current day + the $day-select to pass to TM.js
 function endTimeStamp(){
   let daysOffset = ($("#day-select").find(":selected").val()) * 60 * 60 * 24 * 1000
   let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
@@ -35,35 +27,20 @@ $("#day-select").change(function(){
   endTimeStamp()
 })
 
-//remove me!!!
-// function endTimeStampOld(days){
-//   let daysOffset = days * 60 * 60 * 24 * 1000
-//   let timeZoneOffset= (new Date()).getTimezoneOffset() * 60000
-//   let endTime = new Date(Date.now() + daysOffset - timeZoneOffset)
-//   endTime = endTime.toISOString()
-//   endTime = endTime.substring(0, endTime.indexOf('T'))
-//   console.log(endTime)
-//   return endTime
-//
-// }
-// endTimeStampOld(7)
+//call google maps API
+mynav = navigator.geolocation;
 
-///remove me !!! handler for depricated day selector
-// $('#day-input').val(7)
-// $('#day-submit').click(function(){
-//   console.log($('#day-input').val())
-//   let dayValue = $('#day-input').val()
-//   $('#day-input').val('')
-//   endTimeStamp(dayValue)
-// })
+mynav.getCurrentPosition(success, failure)
 
 function success(position) {
+  //deactive the spinner
+  $('#maps-message').html("")
+  //get the coordinates
   let mylat = position.coords.latitude
   let mylong = position.coords.longitude
-  //$('#lat').html(mylat)
-  //$('#long').html(mylong)
-
-    let mycoords = new google.maps.LatLng(mylat, mylong)
+  let mycoords = new google.maps.LatLng(mylat, mylong)
+  //!!! $('#lat').html(mylat)
+  //!!!  $('#long').html(mylong)
 
 //warning not robust!!!
   fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+mylat+','+mylong+'&result_type=locality'+mapsAPI_KEY).then(function(response){
@@ -77,37 +54,17 @@ function success(position) {
   }).then(function(address_components_array){
     return address_components_array[0]
   }).then(function(address_component){
-    console.log(address_component['long_name'])
-    //$('#city-name').html(address_component['long_name'])
     $("#tags").val(address_component['long_name'])
-    //return address_component['long_name']
     //DO STUFF HERE!!!
   })
-
-//remove me!!!
-  // let mapOptions = {
-  //   zoom: 16,
-  //   center: mycoords,
-  //   mapTypeId: google.maps.MapTypeId.ROADMAP
-  // }
-  //
-  // let map = new google.maps.Map(document.getElementById('map'), mapOptions)
-  //
-  // let marker = new google.maps.Marker({map: map, position: mycoords})
 }
 
+//shows up if google maps fails or gets denied access
 function failure() {
-  $('#fail-message').html("google maps fetch failed!")
+  $('#maps-message').html("google maps fetch failed!")
 }
 
-//remove me !!!
-// $(document).ready(function(){
-//     $('input.autocomplete').autocomplete({data: locationData})
-//     $('#city-submit').click(function(){
-//       getCity()
-//     })
-//   })
-
+//grabs the city value from textbox, returns USA if not in the list passes to TM.js
 function getCity(){
   let cityName = $('#tags').val()
   if (locationData[cityName] == undefined){
@@ -116,11 +73,12 @@ function getCity(){
   return cityName
 }
 
+//auto complete for the city textbox
 $(function(){
     let availableTags = cities
     $("#tags").autocomplete({
     source: function(request, response) {
-        var results = $.ui.autocomplete.filter(availableTags, request.term);
+        let results = $.ui.autocomplete.filter(availableTags, request.term);
 
         response(results.slice(0, 5));
     }

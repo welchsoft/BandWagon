@@ -1,5 +1,5 @@
 const tmAPI_KEY = "&apikey=S8P66L8bOZUZaq7TME2QoF5NTK2AoAVp"
-const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&size=10'
+const concertURL = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&size=10&sort=date,asc'
 var genrePick="Country"
 var dateRangeStart=startTimeStamp()
 var dateRangeEnd=endTimeStamp()
