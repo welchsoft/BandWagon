@@ -23,7 +23,7 @@ function getHashParams() {
 
 // Directs user to Spotify Authorization page so we can get a token
 function spotifyAuthorize(){
-  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2Flocalhost:3000&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
+  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2F100th-monkey.org&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
 }
 
 // Calls extraction function and sets token value to global variable "access_token"
@@ -31,6 +31,23 @@ function getToken(){
   var params = getHashParams();
   access_token = params.access_token
   console.log("Token created")
+}
+
+// Retrieves User Id and sets it to global variable, resets variable each time called
+function getUserId(){
+  currentUser = ''
+  $.ajax({
+    url: `https://api.spotify.com/v1/me`,
+    headers:{
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + access_token
+    },
+    success: (response)=>{
+      currentUser = response.id
+      console.log("User ID retrieved")
+    }
+  })
 }
 
 // Searches Spotify API for each band name in list given and returns a list of band ID's for later searches
@@ -113,13 +130,6 @@ function playlistGenerator(formatted_songs){
   })
 }
 
-
-// Dynamically injects the playlist after it has been generated
-function displayPlaylist(){
-  playlistDiv = document.getElementById("playlist")
-  playlistDiv.innerHTML = `<iframe id="playlist-frame" src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
-}
-
 // Takes playlist id and formatted track ids and adds the songs to created playlist on user's profile.
 function addSongs(playlist, track){
   $.ajax({
@@ -144,22 +154,11 @@ function formattedSongs(){
   band_top_track_api_results = band_top_track_api_results.join(',')
   return band_top_track_api_results
 }
- 
-// Retrieves User Id and sets it to global variable, resets variable each time called
-function getUserId(){
-  currentUser = ''
-  $.ajax({
-    url: `https://api.spotify.com/v1/me`,
-    headers:{
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + access_token
-    },
-    success: (response)=>{
-      currentUser = response.id
-      console.log("User ID retrieved")
-    }
-  })
+
+// Dynamically injects the playlist after it has been generated
+function displayPlaylist(){
+  playlistDiv = document.getElementById("playlist")
+  playlistDiv.innerHTML = `<iframe id="playlist-frame" src="https://open.spotify.com/embed?uri=spotify:user:${currentUser}:playlist:${playlist_id}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
 }
 
 // Sends user to authorization page
