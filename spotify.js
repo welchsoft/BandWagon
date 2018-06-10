@@ -23,7 +23,7 @@ function getHashParams() {
 
 // Directs user to Spotify Authorization page so we can get a token
 function spotifyAuthorize(){
-  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2Flocalhost:3000&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
+  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2F100th-monkey.org&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
 }
 
 // Calls extraction function and sets token value to global variable "access_token"
@@ -66,16 +66,14 @@ function findBandIds(searchTerms){
     }).then((response)=>{
         if ((response.artists.total !== 0)&&($.inArray(response.artists.items[0].id, band_id_api_results)) == -1) {
           band_id_api_results.push(response.artists.items[0].id)
+          successful_requests += 1
         } else {
           length_of_requests-=1
         }
-
-      successful_requests += 1
       
       
       if(length_of_requests == successful_requests){
         console.log("Finished getting Band IDs")
-        console.log(band_id_api_results)
         successful_requests = 0
         findTopSongs(band_id_api_results)
         } else {
@@ -90,8 +88,6 @@ function findBandIds(searchTerms){
 function findTopSongs(list_of_band_ids){
   var song_ids = []
   length_of_requests = list_of_band_ids.length
-  band_top_track_api_results = []
-  list_of_song_titles = []
   list_of_band_ids.forEach((item)=>{
     $.ajax({
       url: `https://api.spotify.com/v1/artists/${item}/top-tracks?country=US`,
@@ -101,15 +97,20 @@ function findTopSongs(list_of_band_ids){
         'Authorization': 'Bearer ' + access_token
       },
     }).then((response)=>{
-      var songName = response.tracks[0].name
-      var songId = response.tracks[0].id
-      band_top_track_api_results.push(songId)
-      list_of_song_titles.push(songName)
-      successful_requests += 1
-
+      if (response.tracks[0] == undefined){
+        length_of_requests -= 1
+      } else {
+        var songName = response.tracks[0].name
+        var songId = response.tracks[0].id
+        band_top_track_api_results.push(songId)
+        list_of_song_titles.push(songName)
+        successful_requests += 1
+      }
+      
       if(length_of_requests == successful_requests){
         console.log("Finished getting top tracks")
         console.log(list_of_song_titles)
+        successful_requests = 0
         var songFormat = formattedSongs()
         playlistGenerator(songFormat)
       }
@@ -120,7 +121,7 @@ function findTopSongs(list_of_band_ids){
 
 // Posts new playlist named "Bandwagon" to user's profile, calls functions to format and add songs to playlist
 function playlistGenerator(formatted_songs){
-  //playlist.css(“display”, “flex”)
+  // playlist.css(“display”, “flex”)
   var playlistName = {name: "Bandwagon"}
   $.ajax({
     method: 'POST',
@@ -134,6 +135,9 @@ function playlistGenerator(formatted_songs){
       console.log("Playlist Created!")
       playlist_id = response.id
       addSongs(playlist_id, formatted_songs)
+      band_top_track_api_results = []
+      list_of_song_titles = []
+      band_id_api_results = []
       displayPlaylist()
     }
   })
@@ -181,5 +185,12 @@ authorize.click(()=>{
 playlist_generator.click(()=>{
   getToken()
   getUserId()
+  $('#playlist').html(` <div class="spinner">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+ </div>`)
   let id_list = findBandIds(artistPass)
 })
