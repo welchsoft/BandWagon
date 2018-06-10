@@ -14,6 +14,7 @@ var city = '&dmaId='+locationPick
 function generateList(){
     var genreChoice = document.getElementById("genreSelect").value;
     playlist.css("display", "None")
+    console.log("hiding playlist")
     genre = genreChoice;
     locationPick=getCity()
     genresearch = '&classificationId='+genre
