@@ -11,12 +11,10 @@ var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
 
-//genreSelect=$('#genreSelect');
-//day-select=$('#day-select');
-//genreSelect.change(generateList())
-
 function generateList(){
     var genreChoice = document.getElementById("genreSelect").value;
+    playlist.css("display", "None")
+    console.log("hiding playlist")
     genre = genreChoice;
     locationPick=getCity()
     genresearch = '&classificationId='+genre
@@ -47,7 +45,6 @@ function buildLocation(){
         return city}
 
 function fetchAll(){
-        buildLocation()
         let searchstring = concertURL+genresearch+city+dateRange+tmAPI_KEY
         console.log(searchstring)
         fetch(searchstring)
@@ -90,5 +87,6 @@ function buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop ){
     li.append(`<p class="genre"> Genre: ${genre}</p>`)
     li.append(`<p onclick=(window.open('${getTickets}')) class="buy" >Buy Tickets</p>`)
     movieList.append(li)}
-
+    
+buildLocation()
 fetchAll()

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/wenzhixin/multiple-select/e14b36de/multiple-select.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <title>BandWagon</title>
@@ -10,24 +11,18 @@
 
 <img src="images/title.png" class="title">
 
-
-<p id='maps-message'></p>
-
 <div class="top-selection-container">
     <div class="heading-container">
         <div class="city-text">Events in the city of:</div>
-        
 
-        <div class="ui-widget">
-        <label for="tags"></label>
-        <input id="tags">
-        <p id='fail-message'></p>
-        </div>
+
+        <select id="city-select"></select>
+        <p id='maps-message'></p>
     </div>
 
     <div class="heading-container">
         <div class="genre-text">Events in the next</div>
-    
+
     <div id="select-container">
         <select name="select-box" id="day-select" class="select">
         <option value="3">3 days</option>
@@ -71,18 +66,7 @@
     </div>
 
 
-
-
-
-
 <div id="listBody" class="listBody">
-
-
-
-
-
-
-
 
 
 <div class="filter-btn-container">
@@ -93,8 +77,11 @@
     <a class="btn spotify-btn" id="generate2">Log Into Spotify</a>
     <a class="btn playlist-btn" id="generate3">Generate Spotify Playlist</a>
 </div>
-<div id="playlist">
+
+
+<div id="playlist" class="playlist">
     
+
 </div>
 <h3>Upcoming Concerts</h3>
 
@@ -102,12 +89,11 @@
     <div class="genre">
 </ul>
 
-
 </div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="location-list.js"></script>
 <!-- all entries bellow here  -->
 <!-- Wades JS goes here -->

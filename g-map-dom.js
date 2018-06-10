@@ -1,5 +1,7 @@
 //key for google maps, remember that &key= was added
 mapsAPI_KEY = '&key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
+//key for google geolocation API
+geolocationAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 //key for google places, might need this later?
 placesAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 
@@ -54,7 +56,8 @@ function success(position) {
   }).then(function(address_components_array){
     return address_components_array[0]
   }).then(function(address_component){
-    $("#tags").val(address_component['long_name'])
+    $("#city-select").val(address_component['long_name'])
+    $("#city-select").trigger('change')
     //DO STUFF HERE!!!
   })
 }
@@ -66,21 +69,18 @@ function failure() {
 
 //grabs the city value from textbox, returns USA if not in the list passes to TM.js
 function getCity(){
-  let cityName = $('#tags').val()
+  let cityName = $('#city-select').val()
   if (locationData[cityName] == undefined){
     cityName = 'USA'
   }
+  console.log(cityName)
   return cityName
 }
 
-//auto complete for the city textbox
-$(function(){
-    let availableTags = cities
-    $("#tags").autocomplete({
-    source: function(request, response) {
-        let results = $.ui.autocomplete.filter(availableTags, request.term);
-
-        response(results.slice(0, 5));
-    }
+$(document).ready(()=>{
+$('#city-select').select2({
+  placeholder: 'Select a city',
+  width: '100%',
+  data: cities
 })
 })
