@@ -69,7 +69,7 @@ function failure() {
 
 //grabs the city value from textbox, returns USA if not in the list passes to TM.js
 function getCity(){
-  let cityName = $('city-select').val()
+  let cityName = $('#city-select').val()
   if (locationData[cityName] == undefined){
     cityName = 'USA'
   }
