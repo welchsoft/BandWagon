@@ -31,20 +31,28 @@ $("#day-select").change(function(){
 
 //call google maps API
 mynav = navigator.geolocation;
-
 mynav.getCurrentPosition(success, failure)
 
 function success(position) {
-  //deactive the spinner
-  $('#maps-message').html("")
   //get the coordinates
   let mylat = position.coords.latitude
   let mylong = position.coords.longitude
+  fetchCity(mylat, mylong)
   let mycoords = new google.maps.LatLng(mylat, mylong)
-  //!!! $('#lat').html(mylat)
-  //!!!  $('#long').html(mylong)
+}
 
-//warning not robust!!!
+//shows up if google maps fails or gets denied access
+function failure() {
+  $('#maps-message').html("getCurrentPostion failed!")
+  jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI", function(success) {
+    let mylat = success.location.lat
+    let mylong = success.location.lng
+    fetchCity(mylat, mylong)
+    })
+}
+
+//send fetch request with coordinates to google maps API
+function fetchCity(mylat, mylong){
   fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+mylat+','+mylong+'&result_type=locality'+mapsAPI_KEY).then(function(response){
     return response.json()
   }).then(function(json){
@@ -56,15 +64,11 @@ function success(position) {
   }).then(function(address_components_array){
     return address_components_array[0]
   }).then(function(address_component){
+    //set the city selector
     $("#city-select").val(address_component['long_name'])
     $("#city-select").trigger('change')
     //DO STUFF HERE!!!
   })
-}
-
-//shows up if google maps fails or gets denied access
-function failure() {
-  $('#maps-message').html("google maps fetch failed!")
 }
 
 //grabs the city value from textbox, returns USA if not in the list passes to TM.js
@@ -73,7 +77,6 @@ function getCity(){
   if (locationData[cityName] == undefined){
     cityName = 'USA'
   }
-  console.log(cityName)
   return cityName
 }
 
