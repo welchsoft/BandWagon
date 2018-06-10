@@ -28,28 +28,34 @@ function endTimeStamp(){
 $("#day-select").change(function(){
   endTimeStamp()
 })
+//
+// //call google maps API
+// mynav = navigator.geolocation;
+// mynav.getCurrentPosition(success, failure)
+//
+// function success(position) {
+//   //get the coordinates
+//   let mylat = position.coords.latitude
+//   let mylong = position.coords.longitude
+//   fetchCity(mylat, mylong)
+//   let mycoords = new google.maps.LatLng(mylat, mylong)
+// }
+//
+// //shows up if google maps fails or gets denied access
+// function failure() {
+//   $('#maps-message').html("getCurrentPostion failed!")
+//   jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI", function(success) {
+//     let mylat = success.location.lat
+//     let mylong = success.location.lng
+//     fetchCity(mylat, mylong)
+//     })
+// }
 
-//call google maps API
-mynav = navigator.geolocation;
-mynav.getCurrentPosition(success, failure)
-
-function success(position) {
-  //get the coordinates
-  let mylat = position.coords.latitude
-  let mylong = position.coords.longitude
+jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI", function(success) {
+  let mylat = success.location.lat
+  let mylong = success.location.lng
   fetchCity(mylat, mylong)
-  let mycoords = new google.maps.LatLng(mylat, mylong)
-}
-
-//shows up if google maps fails or gets denied access
-function failure() {
-  $('#maps-message').html("getCurrentPostion failed!")
-  jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI", function(success) {
-    let mylat = success.location.lat
-    let mylong = success.location.lng
-    fetchCity(mylat, mylong)
-    })
-}
+  })
 
 //send fetch request with coordinates to google maps API
 function fetchCity(mylat, mylong){
