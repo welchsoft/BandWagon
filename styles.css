@@ -13,8 +13,9 @@ h1 {
 	text-align: center;
 }
 
-#playilst{
+.playlist{
   display: flex;
+  padding-top: 100px;
   justify-content: center;
   align-content: center;
 }
@@ -37,6 +38,10 @@ h1 {
 .city-search-field {
   flex: 1;
   max-width: 170px;
+  border-radius: 28px;
+  border-style: inset;
+  border-width: 2px;
+
 }
 
 .city-search-button {
