@@ -75,7 +75,6 @@ function fetchAll(){
                                 }
                         buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop )
                            }
-                        console.log(artistPass)
                         })}
 
 function buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop ){
