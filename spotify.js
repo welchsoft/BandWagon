@@ -8,7 +8,6 @@ var length_of_requests = 0
 var successful_requests = 0
 var band_id_api_results = []
 var band_top_track_api_results = []
-var garbage = []
 
 
 // Extracts token from URL after user authorizes client to access Spotify profile
@@ -55,7 +54,6 @@ function getUserId(){
 function findBandIds(searchTerms){
   var list_of_band_ids = []
   length_of_requests = searchTerms.length
-  console.log(length_of_requests)
   searchTerms.forEach((band)=>{
     $.ajax({
       url: `https://api.spotify.com/v1/search?q=${band}&type=artist`,
@@ -63,12 +61,10 @@ function findBandIds(searchTerms){
         'Authorization': 'Bearer ' + access_token
       },
     }).then((response)=>{
-      if ((response.artists.items[0].name)&&($.inArray(response.artists.items[0].id, band_id_api_results) == -1)) {
+        if ((response.artists.total !== 0)&&($.inArray(response.artists.items[0].id, band_id_api_results)) == -1) {
           band_id_api_results.push(response.artists.items[0].id)
-          console.log(band_id_api_results)
-          console.log(`length of requests = ${length_of_requests} and length of successful requests = ${successful_requests}`)
         } else {
-          garbage.push(response.artists.items[0])
+          length_of_requests-=1
         }
 
       successful_requests += 1
@@ -80,7 +76,7 @@ function findBandIds(searchTerms){
         successful_requests = 0
         findTopSongs(band_id_api_results)
         } else {
-          console.log("Programming sucks a lot sometimes")
+          console.log("Still fetching info")
           }
     })
   })
