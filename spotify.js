@@ -23,7 +23,7 @@ function getHashParams() {
 
 // Directs user to Spotify Authorization page so we can get a token
 function spotifyAuthorize(){
-  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2F100th-monkey.org&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
+  window.location = "https://accounts.spotify.com/authorize?client_id=b976c43fb15b44c881e1598f77270193&redirect_uri=http:%2F%2Flocalhost:3000&scope=user-read-private%20user-read-email%20playlist-modify-public%20playlist-modify-private&response_type=token"
 }
 
 // Calls extraction function and sets token value to global variable "access_token"
@@ -46,6 +46,9 @@ function getUserId(){
     success: (response)=>{
       currentUser = response.id
       console.log("User ID retrieved")
+    },
+    error: ()=>{
+      alert("Please log into spotify first")
     }
   })
 }
@@ -87,6 +90,8 @@ function findBandIds(searchTerms){
 function findTopSongs(list_of_band_ids){
   var song_ids = []
   length_of_requests = list_of_band_ids.length
+  band_top_track_api_results = []
+  list_of_song_titles = []
   list_of_band_ids.forEach((item)=>{
     $.ajax({
       url: `https://api.spotify.com/v1/artists/${item}/top-tracks?country=US`,

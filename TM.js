@@ -77,7 +77,8 @@ function fetchAll(){
                                     artistPass.push(act)
                                 }
                         buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop )
-                           }})}
+                           }
+                        })}
 
 function buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop ){
     let li = $("<li>").addClass("displayList");
