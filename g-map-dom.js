@@ -77,8 +77,10 @@ function getCity(){
   return cityName
 }
 
+$(document).ready(()=>{
 $('#city-select').select2({
   placeholder: 'Select a city',
   width: '100%',
   data: cities
-});
+})
+})
