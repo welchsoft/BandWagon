@@ -1,5 +1,8 @@
 //key for google maps, remember that &key= was added
 mapsAPI_KEY = '&key=AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
+//key for google geolocation API
+geolocationAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
+//does this show up???
 //key for google places, might need this later?
 placesAPI_KEY = 'AIzaSyDTU-JVepSRb5yJKYEmrhVwWRsLnN7ugMI'
 
