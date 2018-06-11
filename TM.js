@@ -67,14 +67,25 @@ function fetchAll(){
         .then(function(json)
         {
             for (event in json["_embedded"])
-                {
-                    return json["_embedded"][event]
-                }
-        })
+                {return json["_embedded"][event]}})
         .then(function(event)
             {
             movieList.html("")
             artistPass=[]
+                if (event == null){
+                    console.log("nothing here")
+                    let li = $("<li>").addClass("displayList");
+                    li.attr('style',`background-image: url(images/empty.jpg)`)
+                    let itemTitle= $("<title>").addClass("textForm")
+                    li.append(`<p class="event-title"> No Events</p>`)
+                    li.append(`<p class="event-title"> match your</p>`)
+                    li.append(`<p class="event-title"> selection</p>`)
+                    movieList.append(li)}
+                
+                else (console.log("good to go"))
+
+           
+
             for (i in event){
                         let genre = event[i].classifications[0].genre.name
                         let eventTitle=event[i].name
