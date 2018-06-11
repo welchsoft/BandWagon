@@ -12,7 +12,7 @@ var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
 
 function generateList(){
-    var genreChoice = document.getElementById("genreSelect").value;
+    var genreChoice = $("genreSelect").val()
     playlist.css("display", "None")
     console.log("hiding playlist")
     genre = genreChoice;
