@@ -6,7 +6,7 @@ var dateRangeEnd=endTimeStamp()
 var dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
 var locationPick="Houston"
 let movieList=$("#movieList")
-var artistPass=[]  
+var artistPass=[]
 var genre = genreCats[genrePick]
 var genresearch = '&classificationId='+genre
 var city = '&dmaId='+locationPick
@@ -26,19 +26,34 @@ function generateList(){
     fetchAll()
 }
 
- generate.addEventListener('click',function(){
-    var genreChoice = document.getElementById("genreSelect").value;
-    genre = genreChoice;
-    locationPick=getCity()
-    genresearch = '&classificationId='+genre
-    dateRangeStart=startTimeStamp()
-    console.log(dateRangeStart)
-    dateRangeEnd=endTimeStamp()
-    dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
-    buildLocation()
-    fetchAll()
- })
- 
+///!!! combo event listener, events should change if city, days, or genre change
+$('#city-select, #genreSelect, #day-select').change(function(){
+  var genreChoice = $("#genreSelect").val()
+  genre = genreChoice;
+  locationPick=getCity()
+  genresearch = '&classificationId='+genre
+  dateRangeStart=startTimeStamp()
+  console.log(dateRangeStart)
+  dateRangeEnd=endTimeStamp()
+  dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
+  buildLocation()
+  fetchAll()
+})
+
+//!!! filter button content OLD
+ // generate.addEventListener('click',function(){
+ //    var genreChoice = document.getElementById("genreSelect").value;
+ //    genre = genreChoice;
+ //    locationPick=getCity()
+ //    genresearch = '&classificationId='+genre
+ //    dateRangeStart=startTimeStamp()
+ //    console.log(dateRangeStart)
+ //    dateRangeEnd=endTimeStamp()
+ //    dateRange ='&startDateTime='+dateRangeStart+'T00:00:00Z&endDateTime='+dateRangeEnd+'T23:59:59Z'
+ //    buildLocation()
+ //    fetchAll()
+ // })
+
 function buildLocation(){
         var locationChoice =locationData[locationPick]
         city = '&dmaId='+locationChoice
@@ -50,7 +65,7 @@ function fetchAll(){
         fetch(searchstring)
         .then(function(response){return response.json()})
         .then(function(json)
-        {   
+        {
             for (event in json["_embedded"])
                 {
                     return json["_embedded"][event]
@@ -87,6 +102,6 @@ function buildit(genre, eventTitle, venue, eventDate, getTickets , backdrop ){
     li.append(`<p class="genre"> Genre: ${genre}</p>`)
     li.append(`<p onclick=(window.open('${getTickets}')) class="buy" >Buy Tickets</p>`)
     movieList.append(li)}
-    
+
 buildLocation()
 fetchAll()
