@@ -201,8 +201,10 @@ h3 {
 .event-title {
   font-size: 50px;
   text-align: center;
-  color: #9af3f9;
+  color:#3498db;
   font-family: helvetica;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: silver;
   margin-top: 10px;
   margin-bottom: 10px;
 }
