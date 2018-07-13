@@ -11,3 +11,7 @@ Find upcoming bands and events in your area, generate a spotify playlist, or buy
 4. returns results based on ticketmaster listings
 
 5. user can login using spotify accaunt and generate a playlist, based on the ticket master results.
+
+6. user can select to buy tickets on any result to be redirected the relevent website.
+
+primarily responsible for the content of g-maps-dom.js, the related buttons in index.html.
